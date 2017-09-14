@@ -4,7 +4,7 @@
 import React from 'react';
 import UserDetails from './UserDetails.js';
 
-export default class State extends React.Component {
+export default class User extends React.Component {
     constructor() {
         super();
         this.state = {

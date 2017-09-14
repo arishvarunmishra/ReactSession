@@ -31,15 +31,39 @@ export default class Calculator extends React.Component {
         });
     };
 
+    componentDidMount(){
+        this.input.focus();
+    };
+
+    onRefget= (ref) => {
+        this.input=ref;
+    };
+    onKeyDown= (e) => {
+        if(e.keyCode==13){
+            console.log("onKeyDown add");
+        }
+
+    };
+
+
+
     render() {
+        const styleButton = {
+            display: 'inline-block',
+            marginRight: 5,
+            padding:10,
+            width:'10%',
+            fontSize: 24,
+            verticalAlign: 'middle'
+        };
         return (<div >
-            {<Input  value={this.state.inputValue}  onChange={(e) => this.onChangeHandler(e)} />
-            }<Button buttonName="+" onClick={(buttonName) => this.clickHandler(buttonName)}/>
-            <Button buttonName="-"  onClick={(buttonName) => this.clickHandler(buttonName)}/>
-            <Button buttonName="*"  onClick={(buttonName) => this.clickHandler(buttonName)}/>
-            <Button buttonName="/" onClick={(buttonName) => this.clickHandler(buttonName)}/>
-            <Button buttonName="=" onClick={(buttonName) => this.clickHandler(buttonName)}/>
-            <Button buttonName="clear" onClick={(buttonName) => this.clickHandler(buttonName)}/>
+            <Input  onKeyDown={(e) => this.onKeyDown(e)} onRefget={(ref) => this.onRefget(ref)}  value={this.state.inputValue} placeholder={"click any button"} onChange={(e) => this.onChangeHandler(e)} />
+            <Button styleButton={styleButton} buttonName="+" onClick={(buttonName) => this.clickHandler(buttonName)}/>
+            <Button styleButton={styleButton} buttonName="-"  onClick={(buttonName) => this.clickHandler(buttonName)}/>
+            <Button styleButton={styleButton}  buttonName="*"  onClick={(buttonName) => this.clickHandler(buttonName)}/>
+            <Button styleButton={styleButton}  buttonName="/" onClick={(buttonName) => this.clickHandler(buttonName)}/>
+            <Button styleButton={styleButton} buttonName="=" onClick={(buttonName) => this.clickHandler(buttonName)}/>
+            <Button styleButton={styleButton} buttonName="clear" onClick={(buttonName) => this.clickHandler(buttonName)}/>
         </div>)
     }
 }

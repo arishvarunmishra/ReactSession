@@ -3,20 +3,8 @@
  */
 
 import React from 'react'
-export default class Button extends React.Component {
-
-    render() {
-
-        const styleButton = {
-            display: 'inline-block',
-            marginRight: 5,
-            padding:10,
-            width:'10%',
-            fontSize: 24,
-            verticalAlign: 'middle'
-
-        };
-        return (<button style={styleButton} onClick={() =>this.props.onClick(this.props.buttonName)}>{this.props.buttonName}</button>)
-    }
+ const Button= (props)=>  {
+        return (<button style={props.styleButton} onClick={() =>props.onClick(props.buttonName)}>{props.buttonName}</button>)
 }
+export default Button;
 

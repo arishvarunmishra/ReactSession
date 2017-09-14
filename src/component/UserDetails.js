@@ -2,14 +2,7 @@
  * Created by varun on 13/9/17.
  */
 import React from 'react';
-
-export default class UserDetails extends React.Component {
-    constructor() {
-        super();
-    }
-
-    render() {
-
+    const UserDetails= (props)=>  {
         const styleImage = {
             height:200,
             width:200
@@ -34,10 +27,11 @@ export default class UserDetails extends React.Component {
 
 
         return (<li style={styleLi}>
-            <img style={styleImage} src={this.props.user.avatar} alt={this.props.user.avatar}/>
+            <img style={styleImage} src={props.user.avatar} alt={props.user.avatar}/>
             <div style={styleDiv} >
-                <div style={styleName} >{this.props.user.name} <span style={styleAge}> {this.props.user.age} </span> </div>
+                <div style={styleName} >{props.user.name} <span style={styleAge}> {props.user.age} </span> </div>
             </div>
         </li>)
-    }
 }
+
+export default UserDetails;
